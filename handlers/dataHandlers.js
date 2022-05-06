@@ -15,6 +15,28 @@ General.find = function(db, collection) {
   };
 };
 
+// function calls the duplicateSlide function defined in ../serrvice/database/index.js
+General.duplicateSlides = function(db, collection) {
+    return function(req, res, next) {
+        var query = req.query;
+        mongoDB.duplicateSlide(db, collection, query).then((x) => {
+        req.data = x;
+        next();
+      }).catch((e) => next(e));
+    };
+  };
+
+  // function calls the duplicateROIs function defined in ../serrvice/database/index.js
+General.duplicateROIs = function(db, collection) {
+    return function(req, res, next) {
+        var query = req.query;
+        mongoDB.duplicateROIs(db, collection, query).then((x) => {
+        req.data = x;
+        next();
+      }).catch((e) => next(e));
+    };
+  };
+
 General.get = function(db, collection) {
   return function(req, res, next) {
     var query = req.query;

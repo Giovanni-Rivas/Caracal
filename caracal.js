@@ -90,6 +90,8 @@ var HANDLERS = {
   "permissionHandler": permissionHandler,
   "editHandler": auth.editHandler,
   "proxyHandler": proxyHandler,
+  "mongoDuplicateSlide": dataHandlers.General.duplicateSlides,
+  "mongoDuplicateROIs": dataHandlers.General.duplicateROIs,
   "iipHandler": function() {
     return iipHandler;
   },
